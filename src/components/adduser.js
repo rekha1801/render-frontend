@@ -32,7 +32,7 @@ function Adduser() {
       number: user.number,
     };
     try {
-      axios.post("http://localhost:5000/add", userdata);
+      axios.post("https://users-backend.onrender.com/add", userdata);
       setuser({
         Name: "",
         Email: "",

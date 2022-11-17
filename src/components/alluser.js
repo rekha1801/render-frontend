@@ -7,11 +7,13 @@ function Getallusers(props) {
   });
   useEffect(() => {
     try {
-      axios.get("http://localhost:5000/getallusers").then((res) => {
-        setuser({
-          students: res.data,
+      axios
+        .get("https://users-backend.onrender.com/getallusers")
+        .then((res) => {
+          setuser({
+            students: res.data,
+          });
         });
-      });
     } catch (err) {
       console.log("error while getting users", err);
     }

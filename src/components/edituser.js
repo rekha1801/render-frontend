@@ -29,14 +29,16 @@ function Edituser() {
   const routeParams = useParams();
   const id = routeParams.id;
   function getsingledata() {
-    axios.get(`http://localhost:5000/getsingleuser/${id}`).then((res) => {
-      setnewdata({
-        Name: res.data.name,
-        Email: res.data.email,
-        number: res.data.number,
+    axios
+      .get(`https://users-backend.onrender.com/getsingleuser/${id}`)
+      .then((res) => {
+        setnewdata({
+          Name: res.data.name,
+          Email: res.data.email,
+          number: res.data.number,
+        });
+        console.log(newdata);
       });
-      console.log(newdata);
-    });
     console.log(id);
   }
   useEffect(() => {
@@ -50,7 +52,7 @@ function Edituser() {
       number: newdata.number,
     };
     try {
-      axios.put(`http://localhost:5000/Edit/${id}`, updatedData);
+      axios.put(`https://users-backend.onrender.com/Edit/${id}`, updatedData);
       setnewdata({
         Name: "",
         Email: "",
@@ -63,7 +65,7 @@ function Edituser() {
   }
   function deleteuser() {
     try {
-      axios.delete(`http://localhost:5000/deleteuser/${id}`);
+      axios.delete(`https://users-backend.onrender.com/deleteuser/${id}`);
       alert("user deleted successfully !!!!");
       setnewdata({
         Name: "",
